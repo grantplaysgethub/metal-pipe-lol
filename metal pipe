@@ -1,0 +1,81 @@
+local ScyllaLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/ugfkihujkmiyuo/New/main/Quinn's%20Ui%20Library")()
+
+local Scylla = ScyllaLibrary:CreateWindow({
+    Name = "Portal Hub - by. Metal Pipe",
+    BackgroundColor = Color3.fromRGB(50, 50, 50),
+    HeaderColor = Color3.fromRGB(35, 35, 35)
+})
+
+local MainTab = Scylla:CreateTab({
+    Name = "EXAMPLE"
+})
+
+local MainSection = MainTab:CreateSection({
+    Name = "EXAMPLE",
+    BackgroundColor = Color3.fromRGB(40, 40, 40),
+    HeaderColor = Color3.fromRGB(30, 30, 30)
+})
+
+MainSection:AddToggle({
+    Name = "Example Toggle",
+    Color = Color3.fromRGB(60, 60, 60),
+    Callback = function(state)
+
+        print("Example")
+    end
+})
+
+MainSection:AddSlider({
+    Color = Color3.fromRGB(60, 60, 60),
+    Min = 50,
+    Max = 500,
+    Value = 250,
+    Callback = function(value)
+        print("Slider value changed to:", value)
+    end
+})
+
+local KeybindsTab = Scylla:CreateTab({
+    Name = "Keybinds"
+})
+
+local KeybindsSection = KeybindsTab:CreateSection({
+    Name = "Example Keybind",
+    BackgroundColor = Color3.fromRGB(40, 40, 40),
+    HeaderColor = Color3.fromRGB(30, 30, 30)
+})
+
+KeybindsSection:AddKeybind({
+    Name = "Keybind Example",
+    DefaultKey = "F",
+    Callback = function()
+        print("Example")
+    end
+})
+
+local SettingsTab = Scylla:CreateTab({
+    Name = "Settings"
+})
+
+local SettingsSection = SettingsTab:CreateSection({
+    Name = "UI Customization",
+    BackgroundColor = Color3.fromRGB(40, 40, 40),
+    HeaderColor = Color3.fromRGB(30, 30, 30)
+})
+
+SettingsSection:AddColorPicker({
+    Name = "Background Color",
+    Callback = function(selectedColor)
+        Scylla.Frame.BackgroundColor3 = selectedColor
+    end
+})
+
+SettingsSection:AddColorPicker({
+    Name = "Text Color",
+    Callback = function(selectedColor)
+        local titleLabel = Scylla.Frame:FindFirstChildOfClass("TextLabel")
+        if titleLabel then
+            titleLabel.TextColor3 = selectedColor
+        end
+    end
+})
